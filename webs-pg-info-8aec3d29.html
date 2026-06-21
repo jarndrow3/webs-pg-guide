@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>资料索引 · pg官网</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f1f3f5;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #2c2f33;
+      line-height: 1.6;
+      padding: 2rem 1rem 0;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* —— hero —— */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 8px 24px rgba(0,0,0,0.04);
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #e6e9ed;
+      transition: box-shadow 0.2s;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+      color: #1c1e21;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      color: #4c5157;
+      margin-bottom: 1rem;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: #ebedf0;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #3a3f46;
+      border: 1px solid #d6d9de;
+    }
+
+    /* —— 卡片区 —— */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 640px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #e3e6ea;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03);
+      padding: 1.75rem 1.75rem 2rem;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    .card:hover {
+      border-color: #cdd2d9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 8px 24px rgba(0,0,0,0.04);
+    }
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+      color: #1e2125;
+    }
+    .card h2 .badge {
+      background: #eef0f3;
+      font-size: 0.7rem;
+      font-weight: 400;
+      padding: 0.1rem 0.6rem;
+      border-radius: 30px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      border: 1px solid #d6d9de;
+      color: #4c545c;
+    }
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #3d434b;
+    }
+    .card ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .card li {
+      padding: 0.2rem 0;
+      display: flex;
+      gap: 0.4rem;
+    }
+    .card li::before {
+      content: "·";
+      color: #8e959f;
+      font-weight: 600;
+    }
+
+    /* —— 说明 / 叙述区 —— */
+    .narrative {
+      background: #ffffff;
+      border: 1px solid #e3e6ea;
+      border-radius: 20px;
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .narrative h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #1e2125;
+      margin-bottom: 0.8rem;
+    }
+    .narrative p {
+      margin-bottom: 0.8rem;
+      color: #3e444c;
+    }
+    .narrative .link-sentence {
+      background: #f6f8fa;
+      padding: 0.9rem 1.2rem;
+      border-radius: 14px;
+      border: 1px solid #e3e6ea;
+      margin-top: 1rem;
+    }
+
+    /* —— FAQ 摘要 —— */
+    .faq-summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 640px) {
+      .faq-summary {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #e3e6ea;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem 1.4rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .faq-item h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #1e2125;
+      margin-bottom: 0.3rem;
+    }
+    .faq-item p {
+      font-size: 0.9rem;
+      color: #585f68;
+    }
+
+    /* —— 底部 —— */
+    .footer-links {
+      border-top: 1px solid #dadfe4;
+      padding: 2rem 0 1.8rem;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-links .copy {
+      font-size: 0.85rem;
+      color: #6d757f;
+    }
+    .footer-links .link-group a {
+      color: #3c454f;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 1.2rem;
+      border-bottom: 1px dashed #c5cad1;
+      padding-bottom: 1px;
+    }
+    .footer-links .link-group a:hover {
+      border-bottom: 1px solid #3c454f;
+    }
+    a {
+      color: #1f4973;
+      text-decoration: none;
+      border-bottom: 1px solid #c8d0d9;
+    }
+    a:hover {
+      border-bottom: 1px solid #1f4973;
+    }
+
+    /* 响应微调 */
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .narrative {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>信息整理·索引思路</h1>
+    <p>
+      从零散资料到结构化参考，围绕内容管理、检索习惯与轻量记录，逐步搭建可复用的信息框架。
+    </p>
+    <span class="tagline">pg官网 · 资料脉络</span>
+  </div>
+
+  <!-- 优势区：从信息整理角度 -->
+  <div class="card-grid">
+    <div class="card">
+      <h2>结构沉淀 <span class="badge">分类</span></h2>
+      <p>将零散条目、链接、笔记按主题聚合，形成可翻阅的本地索引。不必依赖复杂工具，一组卡片、几张表格也能勾勒出知识轮廓。</p>
+      <ul>
+        <li>按项目 / 领域建立标签体系</li>
+        <li>保留原始出处与时间戳</li>
+        <li>定期合并同类条目</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>轻量检索 <span class="badge">回溯</span></h2>
+      <p>许多信息在需要时难以定位，日常记录时稍加整理，就能大幅降低查找成本。关键词、标题、简注都是日后线索。</p>
+      <ul>
+        <li>为每则资料添加 2‑3 个关键词</li>
+        <li>使用统一的日期格式</li>
+        <li>保留原文段落或摘要</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>场景适配 <span class="badge">灵活</span></h2>
+      <p>不论是个人知识库、团队协作笔记还是公开参考页，同一批资料可以通过不同视图呈现。卡片、列表、时间线、标签云……形式服从于查阅习惯。</p>
+    </div>
+    <div class="card">
+      <h2>渐进维护 <span class="badge">可持续</span></h2>
+      <p>不需要一次性建设完成。每次查阅、补充、修正都是一次微更新，索引质量随使用自然提升。重要的是建立记录意识。</p>
+    </div>
+  </div>
+
+  <!-- 说明区：从叙述角度 -->
+  <div class="narrative">
+    <h2>从零散到有序</h2>
+    <p>
+      过去两年我陆续收集了许多关于内容管理、资料分类的链接与短文，起初只是随手存进文件夹，后来发现真正需要检索时，那些标题早已面目模糊。于是开始尝试给每一条资料加一句说明、一个标签，偶尔画一张简单的分类图。这种方法并不新奇，却的确让回顾变得容易。
+    </p>
+    <p>
+      在整理过程中，我注意到一些长期维护的索引站点保持了极佳的结构——它们不只罗列链接，还附带简注、相关话题和版本记录。这也正是我理解中「资料索引」该有的样子：安静、有用、不过度包装。
+    </p>
+    <div class="link-sentence">
+      如果你也有类似的整理兴趣，不妨在 <a href="https://webs--pg.com">pg官网</a> 翻阅一下他们的资料分类方式，或许能找到一些结构上的启发。
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-summary">
+    <div class="faq-item">
+      <h3>索引适合哪些内容？</h3>
+      <p>文章摘要、工具链接、术语定义、项目笔记、书影标记……几乎一切需要日后回顾的文字资料。关键是记录时想好将来如何找到它。</p>
+    </div>
+    <div class="faq-item">
+      <h3>需要专业软件吗？</h3>
+      <p>不需要。一个文件夹、一份纯文本清单、几张卡片都可以作为起点。等积累到一定规模再考虑用表格或轻量数据库。</p>
+    </div>
+    <div class="faq-item">
+      <h3>如何避免索引变成废纸堆？</h3>
+      <p>每隔一到两个月花十分钟浏览一遍，删除过时条目，合并相似主题。维护频率比工具更重要。</p>
+    </div>
+    <div class="faq-item">
+      <h3>是否要公开分享？</h3>
+      <p>取决于内容性质。个人索引可以私有，但如果其中包含精心筛选的公开资源，分享出来也能收到补充建议。</p>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <span class="copy">资料整理·索引参考</span>
+    <span class="link-group">
+      <a href="#">关于</a>
+      <a href="#">笔记</a>
+      <a href="#">归档</a>
+    </span>
+  </div>
+
+</div>
+</body>
+</html>
