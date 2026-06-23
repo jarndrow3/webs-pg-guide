@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼 · 稳定入口简述</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f6fa;
+      line-height: 1.7;
+      color: #1e2a3a;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2e 0%, #1b2f46 100%);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+      color: #e9edf2;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 span {
+      font-weight: 600;
+      color: #f7d48c;
+    }
+
+    .hero .tagline {
+      font-size: 1.1rem;
+      max-width: 580px;
+      margin: 0 auto;
+      color: #bccde0;
+      font-weight: 300;
+      border-top: 1px solid rgba(255,215,140,0.15);
+      padding-top: 1.2rem;
+      display: inline-block;
+    }
+
+    /* 浅色正文区 */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.8rem 1.8rem 4rem;
+      background: #ffffff;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+      border-radius: 0 0 20px 20px;
+    }
+
+    .story-intro {
+      font-size: 1.08rem;
+      background: #f9fafc;
+      padding: 1.6rem 2rem;
+      border-radius: 28px;
+      margin-bottom: 2.4rem;
+      border-left: 5px solid #b68b4a;
+    }
+
+    .story-intro p {
+      margin-bottom: 0.6rem;
+    }
+
+    .story-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 2.2rem 0 1rem 0;
+      color: #1b2f46;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feature-title::before {
+      content: '▍';
+      color: #c4953e;
+      font-size: 1.7rem;
+      line-height: 0;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 2.8rem 1rem;
+      }
+    }
+
+    .feature-list li {
+      background: #f1f4f9;
+      border-radius: 20px;
+      padding: 1rem 1.3rem;
+      font-size: 0.98rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      transition: background 0.15s;
+    }
+
+    .feature-list li:hover {
+      background: #e8edf5;
+    }
+
+    .feature-list li::before {
+      content: '→';
+      color: #b68b4a;
+      font-weight: 500;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .note-card {
+      background: #f5f2eb;
+      border-radius: 24px;
+      padding: 1.5rem 2rem;
+      margin: 2.2rem 0 1.6rem;
+      border: 1px solid #e3dbcf;
+    }
+
+    .note-card p {
+      font-size: 0.98rem;
+      color: #2d3e50;
+    }
+
+    .faq-summary {
+      margin: 2rem 0 1.8rem;
+    }
+
+    .faq-summary details {
+      background: #ffffff;
+      border: 1px solid #e2e7ed;
+      border-radius: 20px;
+      padding: 0.8rem 1.5rem;
+      margin-bottom: 0.5rem;
+      transition: background 0.1s;
+    }
+
+    .faq-summary details[open] {
+      background: #f9fbfd;
+    }
+
+    .faq-summary summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #1f3a52;
+      padding: 0.2rem 0;
+    }
+
+    .faq-summary summary::marker {
+      color: #b68b4a;
+    }
+
+    .faq-summary .answer {
+      padding: 0.6rem 0 0.2rem 0.5rem;
+      font-size: 0.96rem;
+      color: #2f4055;
+    }
+
+    .inline-link {
+      color: #b27a33;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border 0.15s, color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom: 1px solid #b27a33;
+      color: #8f6226;
+    }
+
+    .end-note {
+      margin-top: 2.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e5eaf0;
+      font-size: 0.98rem;
+      color: #3f536a;
+      text-align: center;
+    }
+
+    .end-note a {
+      color: #b27a33;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 1.8rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>· <span>乐鱼</span> ·</h1>
+    <div class="tagline">一份关于稳定入口与页面结构的说明</div>
+  </header>
+
+  <!-- 浅色正文区 -->
+  <main class="container">
+
+    <!-- 开场短句 + 承接 -->
+    <div class="story-intro">
+      <p>平时习惯直接访问某个站点，但偶尔会遇到入口变化或页面打不开的情况。这时如果有一份结构清晰、指向明确的说明页，会省下不少反复查找的时间。</p>
+      <p>下面整理了几个与 <strong>乐鱼</strong> 相关的使用特点，以及访问时可能会注意到的细节。内容平实，只做客观描述，不夸大也不引导。</p>
+    </div>
+
+    <!-- 特点列表 -->
+    <div class="feature-title">页面与访问特点</div>
+    <ul class="feature-list">
+      <li>页面结构尽量保持简洁，主要信息集中在内容区，减少无关跳转。</li>
+      <li>常用入口会在固定位置展示，避免每次都需要重新寻找。</li>
+      <li>页面定期做基础维护，链接有效性会进行常规核验。</li>
+      <li>不支持自动弹窗或强制跳转，浏览体验相对安静。</li>
+      <li>部分功能需要稳定的网络环境，建议在常用网络下访问。</li>
+      <li>页面内容以文字说明为主，没有过多的动态装饰或广告干扰。</li>
+    </ul>
+
+    <!-- 温和的场景卡片 -->
+    <div class="note-card">
+      <p>🔹 如果你正在找一个持续可用的访问方式，可以记住 <a href="https://main-vip-leyu.com" class="inline-link">乐鱼</a> 这个地址。它对应的是一个较稳定的页面入口，相关信息都会在这里集中说明。日常使用前，不妨先看一眼页面上的提示，能减少一些不确定感。</p>
+    </div>
+
+    <!-- FAQ 摘要（不是完整faq，仅片段） -->
+    <div class="faq-summary">
+      <details>
+        <summary>页面打不开一般是什么原因？</summary>
+        <div class="answer">多数情况与本地网络或临时解析有关，可以稍后重试，或检查一下链接拼写。极少数情况下维护期间会短暂不可用，通常很快恢复。</div>
+      </details>
+      <details>
+        <summary>为什么强调“稳定入口”？</summary>
+        <div class="answer">因为部分服务会因域名调整或环境变化导致原地址失效，这时一个固定的说明页可以作为重新定位的起点，减少迷失感。</div>
+      </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="end-note">
+      <p>以上就是关于页面结构与入口的一些整理。如果你恰好有访问需要，<a href="https://main-vip-leyu.com" class="inline-link">乐鱼</a> 这个地址可以作为参考。信息仅用于日常使用参考，不含任何承诺或诱导。</p>
+      <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #6b7f98;">—— 页面内容根据常规使用场景编写，保持中立与适度。</p>
+    </div>
+
+  </main>
+
+</body>
+</html>
